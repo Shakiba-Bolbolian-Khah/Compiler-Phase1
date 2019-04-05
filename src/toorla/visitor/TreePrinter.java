@@ -18,6 +18,7 @@ import toorla.ast.statement.localVarStats.LocalVarDef;
 import toorla.ast.statement.localVarStats.LocalVarsDefinitions;
 import toorla.ast.statement.returnStatement.Return;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TreePrinter implements Visitor<Void> {
@@ -120,116 +121,144 @@ public class TreePrinter implements Visitor<Void> {
 
     @Override
     public Void visit(Plus plusExpr) {
+        System.out.println("( + " + plusExpr.getLhs().accept(this)+"\t" + plusExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(Minus minusExpr) {
+        System.out.println("( - " + minusExpr.getLhs().accept(this)+"\t" + minusExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(Times timesExpr) {
+        System.out.println("( * " + timesExpr.getLhs().accept(this)+"\t" + timesExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(Division divExpr) {
+        System.out.println("( / " + divExpr.getLhs().accept(this)+"\t" + divExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(Modulo moduloExpr) {
+        System.out.println("( % " + moduloExpr.getLhs().accept(this)+"\t" + moduloExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(Equals equalsExpr) {
+        System.out.println("( == " + equalsExpr.getLhs().accept(this)+"\t" + equalsExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(GreaterThan gtExpr) {
+        System.out.println("( > " + gtExpr.getLhs().accept(this)+"\t" + gtExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(LessThan lessThanExpr) {
+        System.out.println("( < " + lessThanExpr.getLhs().accept(this)+"\t" + lessThanExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(And andExpr) {
+        System.out.println("( && " + andExpr.getLhs().accept(this)+"\t" + andExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(Or orExpr) {
+        System.out.println("( || " + orExpr.getLhs().accept(this)+"\t" + orExpr.getRhs().accept(this)+ ")");
         return null;
     }
 
     @Override
     public Void visit(Neg negExpr) {
+        System.out.println("( -  " + negExpr.getExpr().accept(this)+")");
         return null;
     }
 
     @Override
     public Void visit(Not notExpr) {
+        System.out.println("( !  " + notExpr.getExpr().accept(this)+")");
         return null;
     }
 
     @Override
     public Void visit(MethodCall methodCall) {
-        return null; 
+        ArrayList<Expression> args = methodCall.getArgs();
+        System.out.println("( . " + methodCall.getInstance().accept(this) + "\t" + methodCall.getMethodName().accept(this));
+        System.out.println("(");
+        for (int i = 0; i < args.size();i++)
+            System.out.println(args.get(i).accept(this));
+        System.out.println("))");
+        return null;
     }
 
     @Override
     public Void visit(Identifier identifier) {
+        System.out.println(identifier.toString());
         return null;
     }
 
     @Override
     public Void visit(Self self) {
+        System.out.println(self.toString());
         return null;
     }
 
     @Override
     public Void visit(IntValue intValue) {
+        System.out.println(intValue.toString());
         return null;
     }
 
     @Override
     public Void visit(NewArray newArray) {
+        System.out.println("( new arrayof " + newArray.getType().toString() + newArray.getLength().accept(this) + ")");
         return null;
     }
 
     @Override
     public Void visit(BoolValue booleanValue) {
+        System.out.println(booleanValue.toString());
         return null;
     }
 
     @Override
     public Void visit(StringValue stringValue) {
+        System.out.println(stringValue.toString());
         return null;
     }
 
     @Override
     public Void visit(NewClassInstance newClassInstance) {
+        System.out.println("(new " + newClassInstance.getClassName().accept(this) + ")");
         return null;
     }
 
     @Override
     public Void visit(FieldCall fieldCall) {
+        System.out.println("( . " + fieldCall.getInstance().accept(this) + "\t" + fieldCall.getField().accept(this) + ")");
         return null;
     }
 
     @Override
     public Void visit(ArrayCall arrayCall) {
+        System.out.println("( [] " + arrayCall.getInstance().accept(this) + "\t" + arrayCall.getIndex().accept(this) + ")");
         return null;
     }
 
     @Override
     public Void visit(NotEquals notEquals) {
+        System.out.println("( <> " + notEquals.getLhs().accept(this)+"\t" + notEquals.getRhs().accept(this)+ ")");
         return null;
     }
 
