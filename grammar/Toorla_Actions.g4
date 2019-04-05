@@ -441,85 +441,122 @@ singleStatement returns[ Statement value]
         | SEMICOLON+ {$value = new Skip();}
     ;
 
-expression returns [Expression value] locals[Expression lhs,Expression rhs]
+expression returns [Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
     :   al = andExp { $lhs = $al.value;}
-        (OR ar = andExp {$rhs = $ar.value;}
-         {$lhs = new Or($lhs,$rhs);})*
+        (o = OR {$line = $o.line; $pos = $o.pos;}
+         ar = andExp {$rhs = $ar.value;}
+         {$lhs = new Or($lhs,$rhs);
+          $lhs.line = $line; $lhs.col = $pos;
+         })*
 
         {$value = $lhs;}
     ;
 
 
-andExp returns[Expression value] locals[Expression lhs,Expression rhs]
+andExp returns[Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
     :   el = equalExp { $lhs = $el.value;}
-        (AND er = equalExp {$rhs = $er.value;}
-        {$lhs = new And($lhs,$rhs);})*
+        (a = AND {$line = $a.line; $pos = $a.pos;}
+        er = equalExp {$rhs = $er.value;}
+        {$lhs = new And($lhs,$rhs);
+         $lhs.line = $line; $lhs.col = $pos;
+        })*
 
         {$value = $lhs;}
     ;
 
-equalExp returns[Expression value] locals[Expression lhs,Expression rhs]
+equalExp returns[Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
     :   cl = compareExp { $lhs = $cl.value;}
-        ((EQUAL er = equalExp {$rhs = $er.value;}
-         {$lhs = new Equals($lhs,$rhs);})
-         |(NEQUAL er = equalExp {$rhs = $er.value;}
-         {$lhs = new NotEquals($lhs,$rhs);}))*
+        ((e = EQUAL {$line = $e.line; $pos = $e.pos;}
+         er = equalExp {$rhs = $er.value;}
+         {$lhs = new Equals($lhs,$rhs);
+          $lhs.line = $line; $lhs.col = $pos;
+         })
+         |(ne = NEQUAL {$line = $ne.line; $pos = $ne.pos;}
+          er = equalExp {$rhs = $er.value;}
+         {$lhs = new NotEquals($lhs,$rhs);
+          $lhs.line = $line; $lhs.col = $pos;
+         }))*
 
         {$value = $lhs;}
     ;
 
-compareExp returns[Expression value] locals[Expression lhs,Expression rhs]
+compareExp returns[Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
     :   adl = addExp { $lhs = $adl.value;}
-        ((LT adr = addExp {$rhs = $adr.value;}
-         {$lhs = new LessThan($lhs,$rhs);})
-         |(GT adr = addExp {$rhs = $adr.value;}
-         {$lhs = new GreaterThan($lhs,$rhs);}))*
+        ((l = LT {$line = $l.line; $pos = $l.pos;}
+         adr = addExp {$rhs = $adr.value;}
+         {$lhs = new LessThan($lhs,$rhs);
+          $lhs.line = $line; $lhs.col = $pos;
+         })
+         |(g = GT {$line = $g.line; $pos = $g.pos;}
+          adr = addExp {$rhs = $adr.value;}
+         {$lhs = new GreaterThan($lhs,$rhs);
+          $lhs.line = $line; $lhs.col = $pos;
+         }))*
 
         {$value = $lhs;}
     ;
 
-addExp returns[Expression value] locals[Expression lhs,Expression rhs]
+addExp returns[Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
    :   multl = multExp { $lhs = $multl.value;}
-       ((PLUS multr = multExp {$rhs = $multr.value;}
-        {$lhs = new Plus($lhs,$rhs);})
-        |(MINUSNEG multr = multExp {$rhs = $multr.value;}
-        {$lhs = new Minus($lhs,$rhs);}))*
+       ((p = PLUS {$line = $p.line; $pos = $p.pos;}
+        multr = multExp {$rhs = $multr.value;}
+        {$lhs = new Plus($lhs,$rhs);
+         $lhs.line = $line; $lhs.col = $pos;
+        })
+        |(m = MINUSNEG {$line = $m.line; $pos = $m.pos;}
+         multr = multExp {$rhs = $multr.value;}
+        {$lhs = new Minus($lhs,$rhs);
+         $lhs.line = $line; $lhs.col = $pos;
+        }))*
 
        {$value = $lhs;}
    ;
 
-multExp returns[Expression value] locals[Expression lhs,Expression rhs]
+multExp returns[Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
    :   unaryl = unaryExp { $lhs = $unaryl.value;}
-       ((MULT unaryr = unaryExp {$rhs = $unaryr.value;}
-        {$lhs = new Times($lhs,$rhs);})
-        |(MOD unaryr = unaryExp {$rhs = $unaryr.value;}
-        {$lhs = new Modulo($lhs,$rhs);})
-        |(DIV unaryr = unaryExp {$rhs = $unaryr.value;}
-        {$lhs = new Division($lhs,$rhs);}))*
+       ((mul = MULT {$line = $mul.line; $pos = $mul.pos;}
+        unaryr = unaryExp {$rhs = $unaryr.value;}
+        {$lhs = new Times($lhs,$rhs);
+         $lhs.line = $line; $lhs.col = $pos;
+        })
+        |(mod = MOD {$line = $mod.line; $pos = $mod.pos;}
+         unaryr = unaryExp {$rhs = $unaryr.value;}
+        {$lhs = new Modulo($lhs,$rhs);
+         $lhs.line = $line; $lhs.col = $pos;
+        })
+        |(d = DIV {$line = $d.line; $pos = $d.pos;}
+         unaryr = unaryExp {$rhs = $unaryr.value;}
+        {$lhs = new Division($lhs,$rhs);
+         $lhs.line = $line; $lhs.col = $pos;
+        }))*
 
        {$value = $lhs;}
    ;
 
-unaryExp returns[Expression value] locals[String type, Expression expr]
-    :   ((( n = NOT { $type = "NOT";}
-        | m = MINUSNEG {$type = "NEG";})
+unaryExp returns[Expression value] locals[String type, Expression expr,int line,int pos]
+    :   ((( n = NOT { $type = "NOT";$line = $n.line; $pos = $n.pos;}
+        | m = MINUSNEG {$type = "NEG";$line = $n.line; $pos = $n.pos;})
         u = unaryExp
         { $expr = $u.value;})
         | c = callExp {$expr = $c.value;})
 
-        { if( $type == "NOT")
+        { if( $type == "NOT"){
              $value = new Not($expr);
-          else if( $type == "NEG")
+             $value.line = $line; $value.col = $pos;
+          }
+          else if( $type == "NEG"){
              $value = new Neg($expr);
+             $value.line = $line; $value.col = $pos;
+          }
         }
     ;
-
-callExp returns[Expression value] locals[Expression instance,Expression index]
+//check
+callExp returns[Expression value] locals[Expression instance,Expression index,int line,int pos]
     :   ( m = methodCall { $instance = $m.value;}
-          RBRACKET
+          r = RBRACKET {$line = $r.line; $pos = $r.pos;}
           a = addExp { $index = $a.value;}
           LBRACKET
-          {$value = new ArrayCall($instance,$index);}
+          {$value = new ArrayCall($instance,$index); $value.line = $line; $value.col = $pos;}
         )
         | m = methodCall { $value = $m.value;}
         | s = singleCall { $value = $s.value;}
@@ -530,19 +567,21 @@ newExp returns[Expression value] locals[Identifier iD]
     :   NEW
         (( i = ID
         { $iD = new Identifier($i.getText());
+          $iD.line = $i.line; $iD.col = $i.pos;
           $value = new NewClassInstance($iD);
+          $value.line = $iD.line; $value.col = $iD.col;
         }
         RPARAN
         LPARAN )
         | a = array { $value = $array.value;})
     ;
 
-array returns[NewArray value] locals[ SingleType type, IntValue length]
+array returns[NewArray value] locals[ SingleType type, IntValue length,int line , int pos]
     :   t = typpe { $type = $t.type; }
-        RBRACKET
-        n = NUMBER { $length = new IntValue($n.int);}
+        r = RBRACKET {$line = $r.line; $pos = $r.pos;}
+        n = NUMBER { $length = new IntValue($n.int); $length.line = $n.line; $length.col = $n.pos;}
         LBRACKET
-        { $value = new NewArray( $type, $length);}
+        { $value = new NewArray( $type, $length); $value.line = $line; $value.col = $pos;}
     ;
 
 methodCall returns[Expression value] locals[Expression instance]
@@ -552,27 +591,27 @@ methodCall returns[Expression value] locals[Expression instance]
 
 otherCall returns[Expression value]
     :   n = newExp { $value = $n.value;}
-       |s = SELF { $value = new Self();}
-       |i = ID { $value = new Identifier($i.getText());}
+       |s = SELF { $value = new Self(); $value.line = $s.line; $value.col = $s.pos;}
+       |i = ID { $value = new Identifier($i.getText()); $value.line = $i.line; $value.col = $i.pos;}
        |p = paranExp { $value = $p.value;}
        |f = funcCall { $value = $f.value;}
     ;
 
-methodTempCall[Expression instance] returns[Expression value] locals[Expression index,Identifier name,MethodCall mc]
-    :    (RBRACKET
+methodTempCall[Expression instance] returns[Expression value] locals[Expression index,Identifier name,MethodCall mc,int line,int pos,int cLine,int cPos]
+    :    (r = RBRACKET {$line = $r.line; $pos = $r.pos;}
           aa = addExp { $index = $aa.value;}
           LBRACKET
-          {$instance = new ArrayCall($instance,$index);}
+          {$instance = new ArrayCall($instance,$index); $instance.line = $line; $instance.col = $pos;}
          )?
-         DOT
-         ((i = ID { $name = new Identifier($i.getText());}
+         d = DOT {$cLine = $d.line; $cPos = $d.pos;}
+         ((i = ID { $name = new Identifier($i.getText()); $name.line = $i.line; $name.col = $i.pos;}
            RPARAN
-           { $mc = new MethodCall($instance,$name);}
+           { $mc = new MethodCall($instance,$name); $mc.line = $cLine; $mc.col = $cPos;}
            a = argCall[$mc] { $value = $a.value;}
            LPARAN
           )
-          | ii = ID { $name = new Identifier($ii.getText());}
-            { $value = new FieldCall($instance,$name);}
+          | ii = ID { $name = new Identifier($ii.getText()); $name.line = $i.line; $name.col = $i.pos;}
+            { $value = new FieldCall($instance,$name); $value.line = $cLine; $value.col = $cPos;}
          )
          (
           m = methodTempCall[$value] { $value = $m.value;}
@@ -588,36 +627,36 @@ argCall[ MethodCall mc] returns[MethodCall value]
     ;
 
 singleCall returns[Expression value]
-    :   nn = NUMBER { $value = new IntValue($nn.int);}
-      | s = STRTOKEN { $value = new StringValue($s.getText());}
-      | t = TRUE { $value = new BoolValue(true);}
-      | ff = FALSE { $value = new BoolValue(false);}
+    :   nn = NUMBER { $value = new IntValue($nn.int);$value.line = $nn.line; $value.col = $nn.pos;}
+      | s = STRTOKEN { $value = new StringValue($s.getText());$value.line = $s.line; $value.col = $s.pos;}
+      | t = TRUE { $value = new BoolValue(true);$value.line = $t.line; $value.col = $t.pos;}
+      | ff = FALSE { $value = new BoolValue(false);$value.line = $ff.line; $value.col = $ff.pos;}
       | n = newExp { $value = $n.value;}
       | a = arrayElement { $value = $a.value;}
       | p = paranExp { $value = $p.value;}
       | f = funcCall { $value = $f.value;}
-      | i = ID { $value = new Identifier($i.getText());}
+      | i = ID { $value = new Identifier($i.getText());$value.line = $i.line; $value.col = $i.pos;}
     ;
-
+//check
 funcCall returns[MethodCall value] locals[Identifier name,Expression instance]
-    :   i = ID { $name = new Identifier($i.getText());}
+    :   i = ID { $name = new Identifier($i.getText());$name.line = $i.line; $name.col = $i.pos;}
         RPARAN
         {
-            $instance = new Self();
-            $value = new MethodCall($instance,$name);
+            $instance = new Self(); $instance.line = $name.line; $instance.col = $name.col;
+            $value = new MethodCall($instance,$name); $value.line = $name.line; $value.col = $name.col;
         }
           a = argCall[$value] { $value = $a.value;}
         LPARAN
     ;
 
-arrayElement returns[ ArrayCall value] locals[ Expression instance, Expression index]
-    :   (i = ID  { $instance = new Identifier($i.getText());}
+arrayElement returns[ ArrayCall value] locals[ Expression instance, Expression index,int line,int pos]
+    :   (i = ID  { $instance = new Identifier($i.getText()); $instance.line = $i.line; $instance.col = $i.pos;}
         | p = paranExp { $instance = $p.value;}
         )
-        RBRACKET
+        r = RBRACKET { $line = $r.line; $pos = $r.pos;}
         a = addExp { $index = $a.value; }
         LBRACKET
-        { $value = new ArrayCall( $instance , $index); }
+        { $value = new ArrayCall( $instance , $index); $value.line = $line; $value.col = $pos;}
     ;
 
 paranExp returns[Expression value]
