@@ -175,7 +175,7 @@ blockBody returns[List<Statement> value]
         (( stmt = statement { $value.add($stmt.value);})+
         | {$value.add(new Skip());})
     ;
-//what to do what not to do
+//check
 fieldStmt returns[ List<FieldDeclaration> value] locals [int i,String accessmodifier="private",List<Identifier> names,Type fieldType, FieldDeclaration fd,int line,int pos]
     :   { $names = new ArrayList();
           $value = new ArrayList<>();
@@ -187,6 +187,7 @@ fieldStmt returns[ List<FieldDeclaration> value] locals [int i,String accessmodi
         {
             for( $i = 0; $i < $names.size(); $i++){
                 $fd = new FieldDeclaration( $names.get($i) , $fieldType);
+                $fd.line = $line; $fd.col = $pos;
                 if($accessmodifier == "public")
                     $fd.setAccessModifier(AccessModifier.ACCESS_MODIFIER_PUBLIC);
                 $value.add($fd);
@@ -278,13 +279,15 @@ whileBody returns[Statement value]
         | i = ifExp { $value = $i.value;}
     ;
 
-//what to do what not to do
-ifExp returns[Statement value] locals[int i,List<Expression> conds, List<Statement> stmts, Statement elze,int line, int pos]
+//check
+ifExp returns[Statement value] locals[int i,List<Expression> conds, List<Statement> stmts, Statement elze,List<Integer> lines, List<Integer> poses]
     :   {
             $conds = new ArrayList<>();
             $stmts = new ArrayList<>();
+            $lines = new ArrayList<>();
+            $poses = new ArrayList<>();
         }
-        ii = IF {$line = $ii.line; $pos = $ii.pos;}
+        ii = IF {$lines.add($ii.line); $poses.add($ii.pos);}
         RPARAN
         e = expression { $conds.add($e.value);}
         LPARAN
@@ -292,14 +295,19 @@ ifExp returns[Statement value] locals[int i,List<Expression> conds, List<Stateme
         b = ifBody { $stmts.add($b.value);}
         ( el = elifStmt[$conds,$stmts]
         { $conds = $el.conds;
-          $stmts = $el.stmts; })*
-        (els = elseStmt { $stmts.add($els.value);})?
-        )
+          $stmts = $el.stmts;
+          $lines.add($el.line);
+          $poses.add($el.pos);
+        })*
+        (els = elseStmt { $stmts.add($els.value);})?)
         | ie = ifExp { $stmts.add($ie.value);}
         | (cf = completeIf { $stmts.add($cf.value); }
         (el2 = elifStmt[$conds,$stmts]
         { $conds = $el2.conds;
-          $stmts = $el2.stmts; })+
+          $stmts = $el2.stmts;
+          $lines.add($el2.line);
+          $poses.add($el2.pos);
+        })+
         (els2 = elseStmt { $stmts.add($els2.value);})?
         | els3 = elseStmt  { $stmts.add($els3.value);}))
 
@@ -315,6 +323,7 @@ ifExp returns[Statement value] locals[int i,List<Expression> conds, List<Stateme
             for( $i = $conds.size()-1 ; $i > -1 ; $i--)
             {
                 $elze = new Conditional( $conds.get($i) , $stmts.get($i), $elze);
+                $elze.line = $lines.get($i); $elze.col = $poses.get($i);
             }
             $value = $elze;
         }
@@ -325,8 +334,8 @@ ifBody returns[Statement value]
         | b = block { $value = $b.value; }
     ;
 
-elifStmt[List<Expression> condVal, List<Statement> stmtVal] returns[List<Expression> conds, List<Statement> stmts]
-    :   ELIF
+elifStmt[List<Expression> condVal, List<Statement> stmtVal] returns[List<Expression> conds, List<Statement> stmts,int line,int pos]
+    :   el = ELIF { $line = $el.line; $pos = $el.pos;}
         RPARAN
         e = expression { $condVal.add($e.value);}
         LPARAN
@@ -342,12 +351,14 @@ elseStmt returns[Statement value]
         | ie = ifExp { $value = $ie.value;}
     ;
 
-completeIf returns[Statement value] locals[int i,List<Expression> conds, List<Statement> stmts, Statement elze]
+completeIf returns[Statement value] locals[int i,List<Expression> conds, List<Statement> stmts, Statement elze,List<Integer> lines, List<Integer> poses]
     :   {
             $conds = new ArrayList<>();
             $stmts = new ArrayList<>();
+            $lines = new ArrayList<>();
+            $poses = new ArrayList<>();
         }
-        IF
+        ii = IF {$lines.add($ii.line); $poses.add($ii.pos);}
         RPARAN
         e = expression { $conds.add($e.value);}
         LPARAN
@@ -355,7 +366,9 @@ completeIf returns[Statement value] locals[int i,List<Expression> conds, List<St
         | ci = completeIf { $stmts.add($ci.value);} )
         ((el2 = elifStmt[$conds,$stmts]
         { $conds = $el2.conds;
-          $stmts = $el2.stmts; })+
+          $stmts = $el2.stmts;
+          $lines.add($el2.line);
+          $poses.add($el2.pos);})+
         (els2 = elseStmt { $stmts.add($els2.value);})?
         | els3 = elseStmt  { $stmts.add($els3.value);})
 
@@ -371,6 +384,7 @@ completeIf returns[Statement value] locals[int i,List<Expression> conds, List<St
             for( $i = $conds.size()-1 ; $i > -1 ; $i--)
             {
                 $elze = new Conditional( $conds.get($i) , $stmts.get($i), $elze);
+                $elze.line = $lines.get($i); $elze.col = $poses.get($i);
             }
             $value = $elze;
         }
@@ -429,7 +443,7 @@ halt returns[Statement value]
         | b = BREAK { $value = new Break(); $value.line = $b.line; $value.col = $b.pos;})
         SEMICOLON
     ;
-//semicolon??
+//check
 singleStatement returns[ Statement value]
     :
         v = varDef { $value = $v.value;}
@@ -438,7 +452,7 @@ singleStatement returns[ Statement value]
         | p = printFunc {$value = $p.value;}
         | in = incDecStmt {$value = $in.value;}
         | h = halt {$value = $h.value;}
-        | SEMICOLON+ {$value = new Skip();}
+        | s = SEMICOLON+ {$value = new Skip(); $value.line = $s.line; $value.col = $s.pos;}
     ;
 
 expression returns [Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
