@@ -27,7 +27,9 @@ public class TreePrinter implements Visitor<Void> {
     @Override
     public Void visit(PrintLine printStat) {
         Expression arg = printStat.getArg();
-        System.out.println("( print" + arg.accept(this) + ")");
+        System.out.println("( print");
+        arg.accept(this);
+        System.out.println(")");
         return null;
     }
 
@@ -36,7 +38,10 @@ public class TreePrinter implements Visitor<Void> {
         Expression lvalue,rvalue;
         lvalue = assignStat.getLvalue();
         rvalue = assignStat.getRvalue();
-        System.out.println("( = " + lvalue.accept(this) + rvalue.accept(this) + ")");
+        System.out.println("( = " );
+        lvalue.accept(this);
+        rvalue.accept(this);
+        System.out.println(")");
         return null;
     }
 
@@ -45,7 +50,7 @@ public class TreePrinter implements Visitor<Void> {
         List<Statement> body = block.body;
         System.out.println("(");
         for (int i = 0; i < body.size(); i++)
-            System.out.println(body.get(i).accept(this));
+            body.get(i).accept(this);
         System.out.println(")");
         return null;
     }
@@ -53,9 +58,9 @@ public class TreePrinter implements Visitor<Void> {
     @Override
     public Void visit(Conditional conditional) {
         System.out.println("( if");
-        System.out.println(conditional.getCondition().accept(this));
-        System.out.println(conditional.getThenStatement().accept(this));
-        System.out.println(conditional.getElseStatement().accept(this));
+        conditional.getCondition().accept(this);
+        conditional.getThenStatement().accept(this);
+        conditional.getElseStatement().accept(this);
         System.out.println(")");
         return null;
     }
@@ -63,8 +68,8 @@ public class TreePrinter implements Visitor<Void> {
     @Override
     public Void visit(While whileStat) {
         System.out.println("( while ");
-        System.out.println(whileStat.expr.accept(this));
-        System.out.println(whileStat.body.accept(this));
+        whileStat.expr.accept(this);
+        whileStat.body.accept(this);
         System.out.println(")");
         return null;
     }
@@ -72,7 +77,7 @@ public class TreePrinter implements Visitor<Void> {
     @Override
     public Void visit(Return returnStat) {
         System.out.println("( return");
-        System.out.println(returnStat.getReturnedExpr().accept(this));
+        returnStat.getReturnedExpr().accept(this);
         System.out.println(")");
         return null;
     }
@@ -98,8 +103,8 @@ public class TreePrinter implements Visitor<Void> {
     @Override
     public Void visit(LocalVarDef localVarDef) {
         System.out.println("( var ");
-        System.out.println(localVarDef.getLocalVarName().accept(this));
-        System.out.println(localVarDef.getInitialValue().accept(this));
+        localVarDef.getLocalVarName().accept(this);
+        localVarDef.getInitialValue().accept(this);
         System.out.println(")");
         return null;
     }
@@ -107,7 +112,7 @@ public class TreePrinter implements Visitor<Void> {
     @Override
     public Void visit(IncStatement incStatement) {
         System.out.println("( ++");
-        System.out.println(incStatement.getOperand().accept(this));
+        incStatement.getOperand().accept(this);
         System.out.println(")");
         return null;
     }
@@ -115,97 +120,147 @@ public class TreePrinter implements Visitor<Void> {
     @Override
     public Void visit(DecStatement decStatement) {
         System.out.println("( ++");
-        System.out.println(decStatement.getOperand().accept(this));
+        decStatement.getOperand().accept(this);
         System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Plus plusExpr) {
-        System.out.println("( + " + plusExpr.getLhs().accept(this)+"\t" + plusExpr.getRhs().accept(this)+ ")");
+        System.out.println("( + " );
+        plusExpr.getLhs().accept(this);
+        System.out.println("\t");
+        plusExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Minus minusExpr) {
-        System.out.println("( - " + minusExpr.getLhs().accept(this)+"\t" + minusExpr.getRhs().accept(this)+ ")");
+        System.out.println("( - " );
+        minusExpr.getLhs().accept(this);
+        System.out.println("\t");
+        minusExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Times timesExpr) {
-        System.out.println("( * " + timesExpr.getLhs().accept(this)+"\t" + timesExpr.getRhs().accept(this)+ ")");
+        System.out.println("( * " );
+        timesExpr.getLhs().accept(this);
+        System.out.println("\t");
+        timesExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Division divExpr) {
-        System.out.println("( / " + divExpr.getLhs().accept(this)+"\t" + divExpr.getRhs().accept(this)+ ")");
+        System.out.println("( / " );
+        divExpr.getLhs().accept(this);
+        System.out.println("\t");
+        divExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Modulo moduloExpr) {
-        System.out.println("( % " + moduloExpr.getLhs().accept(this)+"\t" + moduloExpr.getRhs().accept(this)+ ")");
+        System.out.println("( % " );
+        moduloExpr.getLhs().accept(this);
+        System.out.println("\t");
+        moduloExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Equals equalsExpr) {
-        System.out.println("( == " + equalsExpr.getLhs().accept(this)+"\t" + equalsExpr.getRhs().accept(this)+ ")");
+        System.out.println("( == " );
+        equalsExpr.getLhs().accept(this);
+        System.out.println("\t");
+        equalsExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(GreaterThan gtExpr) {
-        System.out.println("( > " + gtExpr.getLhs().accept(this)+"\t" + gtExpr.getRhs().accept(this)+ ")");
+        System.out.println("( > " );
+        gtExpr.getLhs().accept(this);
+        System.out.println("\t");
+        gtExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(LessThan lessThanExpr) {
-        System.out.println("( < " + lessThanExpr.getLhs().accept(this)+"\t" + lessThanExpr.getRhs().accept(this)+ ")");
+        System.out.println("( < " );
+        lessThanExpr.getLhs().accept(this);
+        System.out.println("\t");
+        lessThanExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(And andExpr) {
-        System.out.println("( && " + andExpr.getLhs().accept(this)+"\t" + andExpr.getRhs().accept(this)+ ")");
+        System.out.println("( && " );
+        andExpr.getLhs().accept(this);
+        System.out.println("\t");
+        andExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Or orExpr) {
-        System.out.println("( || " + orExpr.getLhs().accept(this)+"\t" + orExpr.getRhs().accept(this)+ ")");
+        System.out.println("( || " );
+        orExpr.getLhs().accept(this);
+        System.out.println("\t");
+        orExpr.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Neg negExpr) {
-        System.out.println("( -  " + negExpr.getExpr().accept(this)+")");
+        System.out.println("( -  ");
+        negExpr.getExpr().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(Not notExpr) {
-        System.out.println("( !  " + notExpr.getExpr().accept(this)+")");
+        System.out.println("( !  ");
+        notExpr.getExpr().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(MethodCall methodCall) {
         ArrayList<Expression> args = methodCall.getArgs();
-        System.out.println("( . " + methodCall.getInstance().accept(this) + "\t" + methodCall.getMethodName().accept(this));
+        System.out.println("( . ");
+        methodCall.getInstance().accept(this);
+        System.out.println("\t");
+        methodCall.getMethodName().accept(this);
         System.out.println("(");
         for (int i = 0; i < args.size();i++)
-            System.out.println(args.get(i).accept(this));
+            args.get(i).accept(this);
         System.out.println("))");
         return null;
     }
 
     @Override
     public Void visit(Identifier identifier) {
-        System.out.println(identifier.toString());
+
+        String str = identifier.toString();
+        if (str != "(Identifier,Dummy)")
+            System.out.println(str);
         return null;
     }
 
@@ -223,7 +278,9 @@ public class TreePrinter implements Visitor<Void> {
 
     @Override
     public Void visit(NewArray newArray) {
-        System.out.println("( new arrayof " + newArray.getType().toString() + newArray.getLength().accept(this) + ")");
+        System.out.println("( new arrayof " + newArray.getType().toString());
+        newArray.getLength().accept(this);
+        System.out.println(")");
         return null;
     }
 
@@ -241,58 +298,79 @@ public class TreePrinter implements Visitor<Void> {
 
     @Override
     public Void visit(NewClassInstance newClassInstance) {
-        System.out.println("(new " + newClassInstance.getClassName().accept(this) + ")");
+        System.out.println("(new ");
+        newClassInstance.getClassName().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(FieldCall fieldCall) {
-        System.out.println("( . " + fieldCall.getInstance().accept(this) + "\t" + fieldCall.getField().accept(this) + ")");
+        System.out.println("( . ");
+        fieldCall.getInstance().accept(this);
+        System.out.println("\t");
+        fieldCall.getField().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(ArrayCall arrayCall) {
-        System.out.println("( [] " + arrayCall.getInstance().accept(this) + "\t" + arrayCall.getIndex().accept(this) + ")");
+        System.out.println("( [] ");
+        arrayCall.getInstance().accept(this);
+        System.out.println("\t");
+        arrayCall.getIndex().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(NotEquals notEquals) {
-        System.out.println("( <> " + notEquals.getLhs().accept(this)+"\t" + notEquals.getRhs().accept(this)+ ")");
+        System.out.println("( <> " );
+        notEquals.getLhs().accept(this);
+        System.out.println("\t");
+        notEquals.getRhs().accept(this);
+        System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(ClassDeclaration classDeclaration) {
+        System.out.println("( class " );
+        classDeclaration.getName().accept(this);
+        classDeclaration.getParentName().accept(this);
         ArrayList<ClassMemberDeclaration> members = classDeclaration.getClassMembers();
-        System.out.println("( class " + classDeclaration.getName().accept(this) + "\t" + classDeclaration.getParentName().accept(this));
         for (int i = 0; i < members.size(); i++)
-            System.out.println(members.get(i).accept(this));
+            members.get(i).accept(this);
         System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(EntryClassDeclaration entryClassDeclaration) {
+        System.out.println("( entry class " );
+        entryClassDeclaration.getName().accept(this);
+        entryClassDeclaration.getParentName().accept(this);
         ArrayList<ClassMemberDeclaration> members = entryClassDeclaration.getClassMembers();
-        System.out.println("( entry class " + entryClassDeclaration.getName().accept(this) + "\t" + entryClassDeclaration.getParentName().accept(this));
         for (int i = 0; i < members.size(); i++)
-            System.out.println(members.get(i).accept(this));
+            members.get(i).accept(this);
         System.out.println(")");
         return null;
     }
 
     @Override
     public Void visit(FieldDeclaration fieldDeclaration) {
-        System.out.println("( " + fieldDeclaration.getAccessModifier().toString() + " field " + fieldDeclaration.getIdentifier().accept(this));
+        System.out.println("( " + fieldDeclaration.getAccessModifier().toString() + " field ");
+        fieldDeclaration.getIdentifier().accept(this);
         System.out.println(fieldDeclaration.getType().toString() + ")");
         return null;
     }
 
     @Override
     public Void visit(ParameterDeclaration parameterDeclaration) {
-        System.out.println("( " + parameterDeclaration.getIdentifier().accept(this) + ":" + parameterDeclaration.getType().toString() + ")");
+        System.out.println("( ");
+        parameterDeclaration.getIdentifier().accept(this);
+        System.out.println(":" + parameterDeclaration.getType().toString() + ")");
         return null;
     }
 
@@ -300,13 +378,14 @@ public class TreePrinter implements Visitor<Void> {
     public Void visit(MethodDeclaration methodDeclaration) {
         ArrayList<ParameterDeclaration> args = methodDeclaration.getArgs();
         ArrayList<Statement> body = methodDeclaration.getBody();
-        System.out.println("( " + methodDeclaration.getAccessModifier().toString() + "method" + methodDeclaration.getName().accept(this));
+        System.out.println("( " + methodDeclaration.getAccessModifier().toString() + "method");
+        methodDeclaration.getName().accept(this);
         for (int i = 0; i < args.size(); i++)
-            System.out.println(args.get(i).accept(this));
+            args.get(i).accept(this);
         System.out.println(methodDeclaration.getReturnType().toString());
         System.out.println("(");
         for (int i = 0; i < body.size(); i++)
-            System.out.println(body.get(i).accept(this));
+            body.get(i).accept(this);
         System.out.println(")\n)");
         return null;
     }
@@ -316,7 +395,7 @@ public class TreePrinter implements Visitor<Void> {
         List<LocalVarDef> definitions = localVarsDefinitions.getVarDefinitions();
         System.out.println("(");
         for (int i = 0; i < definitions.size(); i++)
-            System.out.println(definitions.get(i).accept(this));
+            definitions.get(i).accept(this);
         System.out.println(")");
         return null;
     }
@@ -326,7 +405,7 @@ public class TreePrinter implements Visitor<Void> {
         List<ClassDeclaration> classes = program.getClasses();
         System.out.println("(");
         for (int i = 0; i < classes.size(); i++)
-            System.out.println(classes.get(i).accept(this));
+            classes.get(i).accept(this);
         System.out.println(")");
         return null;
     }

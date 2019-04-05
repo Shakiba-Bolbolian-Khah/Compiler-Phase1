@@ -293,7 +293,7 @@ public class Toorla_ActionsParser extends Parser {
 			setState(122);
 			((ClassTypeContext)_localctx).className = match(ID);
 
-			         ((ClassTypeContext)_localctx).name =  (((ClassTypeContext)_localctx).className!=null?((ClassTypeContext)_localctx).className.getText():null);
+			         ((ClassTypeContext)_localctx).name =  ((ClassTypeContext)_localctx).className.getText();
 			         ((ClassTypeContext)_localctx).iD =  new Identifier(_localctx.name);
 			         _localctx.iD.line = (((ClassTypeContext)_localctx).className!=null?((ClassTypeContext)_localctx).className.getLine():0);
 			         _localctx.iD.col = (((ClassTypeContext)_localctx).className!=null?((ClassTypeContext)_localctx).className.getCharPositionInLine():0);
@@ -318,7 +318,7 @@ public class Toorla_ActionsParser extends Parser {
 
 
 			          if(_localctx.parName == "")
-			            ((ClassTypeContext)_localctx).value =  new ClassDeclaration(_localctx.iD);
+			            ((ClassTypeContext)_localctx).value =  new ClassDeclaration(_localctx.iD,new Identifier(null));
 			          else
 			            ((ClassTypeContext)_localctx).value =  new ClassDeclaration(_localctx.iD,_localctx.parenID);
 			        
@@ -398,7 +398,7 @@ public class Toorla_ActionsParser extends Parser {
 			setState(138);
 			((EntryClassContext)_localctx).className = match(ID);
 
-			         ((EntryClassContext)_localctx).name =  (((EntryClassContext)_localctx).className!=null?((EntryClassContext)_localctx).className.getText():null);
+			         ((EntryClassContext)_localctx).name =  ((EntryClassContext)_localctx).className.getText();
 			         ((EntryClassContext)_localctx).iD =  new Identifier(_localctx.name);
 			         _localctx.iD.line = (((EntryClassContext)_localctx).className!=null?((EntryClassContext)_localctx).className.getLine():0);
 			         _localctx.iD.col = (((EntryClassContext)_localctx).className!=null?((EntryClassContext)_localctx).className.getCharPositionInLine():0);

@@ -11,7 +11,7 @@ public class ToorlaCompiler {
         Toorla_ActionsParser toorlaParser = new Toorla_ActionsParser( tokenStream );
         Program toorlaASTCode = toorlaParser.program().mProgram;
         Visitor<Void> treePrinter = new TreePrinter();
-       // toorlaASTCode.accept( treePrinter );
+        toorlaASTCode.accept( treePrinter );
 //        AS_EXPR_EVALLexer toorlaLexer = new AS_EXPR_EVALLexer( textStream );
 //        CommonTokenStream tokenStream = new CommonTokenStream( toorlaLexer );
 //        AS_EXPR_EVALParser toorlaParser = new AS_EXPR_EVALParser( tokenStream );

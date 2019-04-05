@@ -33,7 +33,7 @@ classType returns [ClassDeclaration value] locals[String name,String parName="",
     :   c = CLASS {$line = $c.line; $pos = $c.pos;}
         className = ID
         {
-         $name = $className.text;
+         $name = $className.getText();
          $iD = new Identifier($name);
          $iD.line = $className.line;
          $iD.col = $className.pos;
@@ -48,7 +48,7 @@ classType returns [ClassDeclaration value] locals[String name,String parName="",
 
         {
           if($parName == "")
-            $value = new ClassDeclaration($iD);
+            $value = new ClassDeclaration($iD,new Identifier(null));
           else
             $value = new ClassDeclaration($iD,$parenID);
         }
@@ -63,7 +63,7 @@ entryClass returns [ClassDeclaration value] locals[String name,String parName=""
     :   m = MAINCLASS {$line = $m.line; $pos = $m.pos;}
         className = ID
         {
-         $name = $className.text;
+         $name = $className.getText();
          $iD = new Identifier($name);
          $iD.line = $className.line;
          $iD.col = $className.pos;
@@ -77,7 +77,7 @@ entryClass returns [ClassDeclaration value] locals[String name,String parName=""
         })?
         {
           if($parName == "")
-            $value = new ClassDeclaration($iD);
+            $value = new ClassDeclaration($iD,newIdentifier(null));
           else
             $value = new ClassDeclaration($iD,$parenID);
         }
@@ -396,7 +396,7 @@ returnFunc returns[Statement value] locals[ Expression retVal,int line,int pos]
         r = RETURN {$line = $r.line; $pos = $r.pos;}
         e = expression { $retVal = $e.value; }
         SEMICOLON
-        { $value = new Return($retVal);
+        { $value = new Return($retVal); System.out.println("in return:"+ $retVal);
           $value.line = $line; $value.col = $pos;
         }
     ;
