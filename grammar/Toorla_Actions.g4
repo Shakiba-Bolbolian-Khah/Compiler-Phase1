@@ -188,7 +188,6 @@ fieldStmt returns[ List<FieldDeclaration> value] locals [int i,String accessmodi
             for( $i = 0; $i < $names.size(); $i++){
                 $fd = new FieldDeclaration( $names.get($i) , $fieldType);
                 $fd.line = $line; $fd.col = $pos;
-                System.out.println("in up of in fieldStmt antlr:" + $accessmodifier);
                 if($accessmodifier.equals( "public"))
                     $fd.setAccessModifier(AccessModifier.ACCESS_MODIFIER_PUBLIC);
                 $value.add($fd);
@@ -243,12 +242,14 @@ instantiation returns[LocalVarsDefinitions value] locals[LocalVarDef lvd, Identi
           $value.addVarDefinition($lvd);
         }
         m = multiVar[$value] { $value = $m.value;}
-        {$value.line = $line1; $value.col = $pos1;}
+        {
+        $value.line = $line1;
+        $value.col = $pos1;}
     ;
 
 multiVar[LocalVarsDefinitions val] returns[LocalVarsDefinitions value] locals[LocalVarDef lvd, Identifier iD, Expression rValue,int line,int pos]
     :
-        (COMMA
+        ((COMMA
         i = ID { $iD = new Identifier($i.getText()); $iD.line = $i.line; $iD.col = $i.pos;}
         a = ASSIGN {$line = $a.line; $pos = $a.pos;}
         e = expression { $rValue = $e.value;}
@@ -256,7 +257,7 @@ multiVar[LocalVarsDefinitions val] returns[LocalVarsDefinitions value] locals[Lo
           $lvd.line = $line; $lvd.col = $pos;
         $val.addVarDefinition($lvd); }
         m = multiVar[$val] { $val = $m.value;})
-        | SEMICOLON
+        | SEMICOLON)
         { $value = $val;}
     ;
 
@@ -454,7 +455,7 @@ singleStatement returns[ Statement value]
         | p = printFunc {$value = $p.value;}
         | in = incDecStmt {$value = $in.value;}
         | h = halt {$value = $h.value;}
-        | s = SEMICOLON+ {$value = new Skip(); $value.line = $s.line; $value.col = $s.pos;})
+        | (s = SEMICOLON {$value = new Skip(); $value.line = $s.line; $value.col = $s.pos;}))
     ;
 
 expression returns [Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
