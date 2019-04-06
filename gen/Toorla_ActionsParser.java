@@ -423,9 +423,9 @@ public class Toorla_ActionsParser extends Parser {
 
 
 			          if(_localctx.parName == "")
-			            ((EntryClassContext)_localctx).value =  new ClassDeclaration(_localctx.iD);
+			            ((EntryClassContext)_localctx).value =  new EntryClassDeclaration(_localctx.iD,new Identifier(null));
 			          else
-			            ((EntryClassContext)_localctx).value =  new ClassDeclaration(_localctx.iD,_localctx.parenID);
+			            ((EntryClassContext)_localctx).value =  new EntryClassDeclaration(_localctx.iD,_localctx.parenID);
 			        
 			setState(146);
 			match(COLON);
@@ -1222,7 +1222,7 @@ public class Toorla_ActionsParser extends Parser {
 				{
 				setState(254);
 				((FieldStmtContext)_localctx).am = accessModifier();
-				((FieldStmtContext)_localctx).accessmodifier =  ((FieldStmtContext)_localctx).am.name;
+				((FieldStmtContext)_localctx).accessmodifier =  ((FieldStmtContext)_localctx).am.name; 
 				}
 			}
 
@@ -1258,7 +1258,8 @@ public class Toorla_ActionsParser extends Parser {
 			            for( ((FieldStmtContext)_localctx).i =  0; _localctx.i < _localctx.names.size(); _localctx.i++){
 			                ((FieldStmtContext)_localctx).fd =  new FieldDeclaration( _localctx.names.get(_localctx.i) , _localctx.fieldType);
 			                _localctx.fd.line = _localctx.line; _localctx.fd.col = _localctx.pos;
-			                if(_localctx.accessmodifier == "public")
+			                System.out.println("in up of in fieldStmt antlr:" + _localctx.accessmodifier);
+			                if(_localctx.accessmodifier.equals( "public"))
 			                    _localctx.fd.setAccessModifier(AccessModifier.ACCESS_MODIFIER_PUBLIC);
 			                _localctx.value.add(_localctx.fd);
 			            }
@@ -3049,11 +3050,12 @@ public class Toorla_ActionsParser extends Parser {
 		enterRule(_localctx, 60, RULE_singleStatement);
 		try {
 			int _alt;
+			enterOuterAlt(_localctx, 1);
+			{
 			setState(554);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,39,_ctx) ) {
 			case 1:
-				enterOuterAlt(_localctx, 1);
 				{
 				setState(530);
 				((SingleStatementContext)_localctx).v = varDef();
@@ -3061,7 +3063,6 @@ public class Toorla_ActionsParser extends Parser {
 				}
 				break;
 			case 2:
-				enterOuterAlt(_localctx, 2);
 				{
 				setState(533);
 				((SingleStatementContext)_localctx).w = whileLoop();
@@ -3069,7 +3070,6 @@ public class Toorla_ActionsParser extends Parser {
 				}
 				break;
 			case 3:
-				enterOuterAlt(_localctx, 3);
 				{
 				setState(536);
 				((SingleStatementContext)_localctx).r = returnFunc();
@@ -3077,7 +3077,6 @@ public class Toorla_ActionsParser extends Parser {
 				}
 				break;
 			case 4:
-				enterOuterAlt(_localctx, 4);
 				{
 				setState(539);
 				((SingleStatementContext)_localctx).p = printFunc();
@@ -3085,7 +3084,6 @@ public class Toorla_ActionsParser extends Parser {
 				}
 				break;
 			case 5:
-				enterOuterAlt(_localctx, 5);
 				{
 				setState(542);
 				((SingleStatementContext)_localctx).in = incDecStmt();
@@ -3093,7 +3091,6 @@ public class Toorla_ActionsParser extends Parser {
 				}
 				break;
 			case 6:
-				enterOuterAlt(_localctx, 6);
 				{
 				setState(545);
 				((SingleStatementContext)_localctx).h = halt();
@@ -3101,7 +3098,6 @@ public class Toorla_ActionsParser extends Parser {
 				}
 				break;
 			case 7:
-				enterOuterAlt(_localctx, 7);
 				{
 				setState(549); 
 				_errHandler.sync(this);
@@ -3126,6 +3122,7 @@ public class Toorla_ActionsParser extends Parser {
 				((SingleStatementContext)_localctx).value =  new Skip(); _localctx.value.line = (((SingleStatementContext)_localctx).s!=null?((SingleStatementContext)_localctx).s.getLine():0); _localctx.value.col = (((SingleStatementContext)_localctx).s!=null?((SingleStatementContext)_localctx).s.getCharPositionInLine():0);
 				}
 				break;
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -3869,7 +3866,7 @@ public class Toorla_ActionsParser extends Parser {
 				{
 				setState(685);
 				((UnaryExpContext)_localctx).c = callExp();
-				((UnaryExpContext)_localctx).expr =  ((UnaryExpContext)_localctx).c.value;
+				((UnaryExpContext)_localctx).value =  ((UnaryExpContext)_localctx).c.value;
 				}
 				break;
 			default:
@@ -4531,6 +4528,7 @@ public class Toorla_ActionsParser extends Parser {
 
 	public static class SingleCallContext extends ParserRuleContext {
 		public Expression value;
+		public Identifier iD;
 		public Token nn;
 		public Token s;
 		public Token t;
@@ -4652,7 +4650,7 @@ public class Toorla_ActionsParser extends Parser {
 				{
 				setState(813);
 				((SingleCallContext)_localctx).i = match(ID);
-				 ((SingleCallContext)_localctx).value =  new Identifier(((SingleCallContext)_localctx).i.getText());_localctx.value.line = (((SingleCallContext)_localctx).i!=null?((SingleCallContext)_localctx).i.getLine():0); _localctx.value.col = (((SingleCallContext)_localctx).i!=null?((SingleCallContext)_localctx).i.getCharPositionInLine():0);
+				 ((SingleCallContext)_localctx).iD =  new Identifier((((SingleCallContext)_localctx).i!=null?((SingleCallContext)_localctx).i.getText():null));_localctx.iD.line = (((SingleCallContext)_localctx).i!=null?((SingleCallContext)_localctx).i.getLine():0); _localctx.iD.col = (((SingleCallContext)_localctx).i!=null?((SingleCallContext)_localctx).i.getCharPositionInLine():0); ((SingleCallContext)_localctx).value =  _localctx.iD;
 				}
 				break;
 			}

@@ -77,9 +77,9 @@ entryClass returns [ClassDeclaration value] locals[String name,String parName=""
         })?
         {
           if($parName == "")
-            $value = new ClassDeclaration($iD,newIdentifier(null));
+            $value = new EntryClassDeclaration($iD,new Identifier(null));
           else
-            $value = new ClassDeclaration($iD,$parenID);
+            $value = new EntryClassDeclaration($iD,$parenID);
         }
 
         COLON cb = classBody[$value] {$value = $cb.value;}
@@ -105,7 +105,7 @@ method returns[MethodDeclaration value] locals [int i,String accessmodifier="pub
         { $value = new MethodDeclaration($name);
           $value.line = $line;
           $value.col = $pos;
-          if($accessmodifier == "private")
+          if($accessmodifier.equals("private"))
             $value.setAccessModifier(AccessModifier.ACCESS_MODIFIER_PRIVATE);
         }
         (a = argument[$value] {$value = $a.value;})?
@@ -180,7 +180,7 @@ fieldStmt returns[ List<FieldDeclaration> value] locals [int i,String accessmodi
     :   { $names = new ArrayList();
           $value = new ArrayList<>();
         }
-        (am = accessModifier {$accessmodifier = $am.name;})?
+        (am = accessModifier {$accessmodifier = $am.name; })?
         ff = FIELD {$line = $ff.line; $pos = $ff.pos;}
         fVars = fieldVars {$names = $fVars.names;}
         ( (t = typpe {$fieldType = $t.type;}) | (f = funcArray {$fieldType = new ArrayType($f.type);}))
@@ -188,7 +188,8 @@ fieldStmt returns[ List<FieldDeclaration> value] locals [int i,String accessmodi
             for( $i = 0; $i < $names.size(); $i++){
                 $fd = new FieldDeclaration( $names.get($i) , $fieldType);
                 $fd.line = $line; $fd.col = $pos;
-                if($accessmodifier == "public")
+                System.out.println("in up of in fieldStmt antlr:" + $accessmodifier);
+                if($accessmodifier.equals( "public"))
                     $fd.setAccessModifier(AccessModifier.ACCESS_MODIFIER_PUBLIC);
                 $value.add($fd);
             }
@@ -396,7 +397,7 @@ returnFunc returns[Statement value] locals[ Expression retVal,int line,int pos]
         r = RETURN {$line = $r.line; $pos = $r.pos;}
         e = expression { $retVal = $e.value; }
         SEMICOLON
-        { $value = new Return($retVal); System.out.println("in return:"+ $retVal);
+        { $value = new Return($retVal);
           $value.line = $line; $value.col = $pos;
         }
     ;
@@ -446,13 +447,14 @@ halt returns[Statement value]
 //check
 singleStatement returns[ Statement value]
     :
+        (
         v = varDef { $value = $v.value;}
         | w = whileLoop { $value = $w.value;}
         | r = returnFunc {$value = $r.value;}
         | p = printFunc {$value = $p.value;}
         | in = incDecStmt {$value = $in.value;}
         | h = halt {$value = $h.value;}
-        | s = SEMICOLON+ {$value = new Skip(); $value.line = $s.line; $value.col = $s.pos;}
+        | s = SEMICOLON+ {$value = new Skip(); $value.line = $s.line; $value.col = $s.pos;})
     ;
 
 expression returns [Expression value] locals[Expression lhs,Expression rhs,int line,int pos]
@@ -552,7 +554,7 @@ unaryExp returns[Expression value] locals[String type, Expression expr,int line,
         | m = MINUSNEG {$type = "NEG";$line = $n.line; $pos = $n.pos;})
         u = unaryExp
         { $expr = $u.value;})
-        | c = callExp {$expr = $c.value;})
+        | c = callExp {$value = $c.value;})
 
         { if( $type == "NOT"){
              $value = new Not($expr);
@@ -640,7 +642,7 @@ argCall[ MethodCall mc] returns[MethodCall value]
         { $value = $mc; }
     ;
 
-singleCall returns[Expression value]
+singleCall returns[Expression value] locals[Identifier iD]
     :   nn = NUMBER { $value = new IntValue($nn.int);$value.line = $nn.line; $value.col = $nn.pos;}
       | s = STRTOKEN { $value = new StringValue($s.getText());$value.line = $s.line; $value.col = $s.pos;}
       | t = TRUE { $value = new BoolValue(true);$value.line = $t.line; $value.col = $t.pos;}
@@ -649,7 +651,7 @@ singleCall returns[Expression value]
       | a = arrayElement { $value = $a.value;}
       | p = paranExp { $value = $p.value;}
       | f = funcCall { $value = $f.value;}
-      | i = ID { $value = new Identifier($i.getText());$value.line = $i.line; $value.col = $i.pos;}
+      | i = ID { $iD = new Identifier($i.text);$iD.line = $i.line; $iD.col = $i.pos; $value = $iD;}
     ;
 //check
 funcCall returns[MethodCall value] locals[Identifier name,Expression instance]
