@@ -119,7 +119,7 @@ public class TreePrinter implements Visitor<Void> {
 
     @Override
     public Void visit(DecStatement decStatement) {
-        System.out.println("( ++");
+        System.out.println("( --");
         decStatement.getOperand().accept(this);
         System.out.println(")");
         return null;
@@ -393,10 +393,8 @@ public class TreePrinter implements Visitor<Void> {
     @Override
     public Void visit(LocalVarsDefinitions localVarsDefinitions) {
         List<LocalVarDef> definitions = localVarsDefinitions.getVarDefinitions();
-        System.out.println("(");
         for (int i = 0; i < definitions.size(); i++)
             definitions.get(i).accept(this);
-        System.out.println(")");
         return null;
     }
 
