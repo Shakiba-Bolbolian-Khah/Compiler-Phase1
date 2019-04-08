@@ -1,45 +1,50 @@
-/**
-*
-*  An example of Toorla
-*
-**/
-class father:
-	function main() returns int:
-		i=0;
-		while(i<11)begin
-			if(i%3==0)
-				print("3k");
-			elif(i%3==1)
-				print("3k+1");
-			else
-				print("3k+2");
-			i++;
-		end
-		return 0;
-	end
-end
-entry class child inherits father:
-	field goods int[];
-	function length() returns int:
-		return goods.length;
-	end
-	function populate() returns string:
-		goods=new int[10];
-		i=0;
-		var j=0;
-		if( a == 1 )
-		    if( a == 2 )
-		        return 0;
-		    else
-		        return 1;
-		return "hello";
-		while( true );;;
-		while(true)begin
-			goods[i]=j*3;
-			i++;
-			return "papa";
-			if(i==10)
-				break;
-		end
-	end
+entry class donyaa inherits sss:
+  private field felani felanAagha;
+  private field felanJaaHaa felanJaa[];
+  function main() returns int:
+    felani=new felanAagha();
+    felanJaaHaa=new felanJaa[20];
+    i=0;
+    if (a)
+        if(b)
+            return a;
+        elif(c)
+            if (a)
+                return c;
+            elif (d)
+                return d;
+            else
+                return b;
+            elif(1)
+                return 2;
+            else begin
+                return 2;
+            end
+
+    return 0;
+  end
+  public field aaaa int[];
+    field a string;
+    function sss(a:int, b:strin, c:bool[]) returns bool:
+        while(f().s.t[5123232].s()) begin
+            a=1;
+            if(q == 2)begin
+                q=add23;
+                ss=s;
+            end
+            else begin
+                self.f=new clccsadlsa().f1.f2(s,3,2,1,1,3,ddd,new s().f, b<>b, b>b, a<d, 0&&0||!!!!!b-!a-2*d%d == 1)[3];
+                continue;
+                break;
+                s++;
+                V--;
+                var s = (((new int[10])));
+                var s = ((((s))+2)%(a));
+                return a.length();
+             end
+
+        print("@@#!#@$$@$(!_#!_+)@#(*@#*_!)*~_(#SADsadasdsaksdssadlsklkl");
+
+        end
+    end
 end

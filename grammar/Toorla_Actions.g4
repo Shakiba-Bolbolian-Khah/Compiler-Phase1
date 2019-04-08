@@ -342,7 +342,7 @@ elifStmt[List<Expression> condVal, List<Statement> stmtVal] returns[List<Express
         e = expression { $condVal.add($e.value);}
         LPARAN
         ( b = ifBody { $stmtVal.add($b.value);}
-        | ie = ifExp { $stmts.add($ie.value);} )
+        | ie = ifExp { $stmtVal.add($ie.value);} )
         { $conds = $condVal;
           $stmts = $stmtVal; }
     ;
