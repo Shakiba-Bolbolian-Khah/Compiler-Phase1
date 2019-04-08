@@ -121,7 +121,7 @@ method returns[MethodDeclaration value] locals [int i,String accessmodifier="pub
         END
     ;
 
-accessModifier returns[String name]//TO DO
+accessModifier returns[String name]
     :   pu = PUBLIC {$name = $pu.getText();}
         | pr = PRIVATE {$name = $pr.getText();}
     ;
@@ -134,12 +134,14 @@ typpe returns[SingleType type] locals[ Identifier iD, ClassDeclaration cd]
        |c = ID
        {
        $iD = new Identifier($c.getText());
+       $iD.line = $c.line; $iD.col = $c.pos;
        $cd = new ClassDeclaration($iD);
+       $cd.line = $iD.line; $cd.col = $iD.col;
        $type = new UserDefinedType($cd);
        }
     ;
 
-argument[MethodDeclaration md] returns[MethodDeclaration value] locals[String name, Type argType, Identifier iD, ParameterDeclaration pd]
+argument[MethodDeclaration md] returns[MethodDeclaration value] locals[String name, Type argType, Identifier iD, ParameterDeclaration pd,int line,int pos]
     :   i = ID
     {
      $name = $i.getText();
@@ -147,10 +149,11 @@ argument[MethodDeclaration md] returns[MethodDeclaration value] locals[String na
      $iD.line = $i.line;
      $iD.col = $i.pos;
     }
-        COLON
+        cc = COLON {$line = $cc.line; $pos = $cc.pos;}
         ( t = typpe {$argType = $t.type;} | f = funcArray {$argType = new ArrayType($f.type);})
         {
           $pd = new ParameterDeclaration( $iD, $argType);
+          $pd.line = $line; $pd.col = $pos;
           $md.addArg( $pd );
         }
         ma = multiArgs[$md] { $md = $ma.value;}
@@ -175,7 +178,7 @@ blockBody returns[List<Statement> value]
         (( stmt = statement { $value.add($stmt.value);})+
         | {$value.add(new Skip());})
     ;
-//check
+
 fieldStmt returns[ List<FieldDeclaration> value] locals [int i,String accessmodifier="private",List<Identifier> names,Type fieldType, FieldDeclaration fd,int line,int pos]
     :   { $names = new ArrayList();
           $value = new ArrayList<>();
@@ -218,12 +221,10 @@ varDef returns[ Statement value]
         a = assignment {$value = $a.value;}
         | i = instantiation {$value = $i.value;}
     ;
-//check
+
 assignment returns[ Statement value] locals[Expression lValue, Expression rValue,int line,int pos]
     :
-        ( i = ID { $lValue = new Identifier($i.getText()); $lValue.line = $i.line; $lValue.col = $i.pos;}
-        | a = arrayElement { $lValue = $a.value;}
-        | f = callExp { $lValue = $f.value;})
+        ( f = callExp { $lValue = $f.value;})
         aa = ASSIGN {$line = $aa.line; $pos = $aa.pos;}
         e = expression { $rValue = $e.value;}
         { $value = new Assign( $lValue, $rValue); $value.line = $line; $value.col = $pos;}
@@ -281,7 +282,7 @@ whileBody returns[Statement value]
         | i = ifExp { $value = $i.value;}
     ;
 
-//check
+
 ifExp returns[Statement value] locals[int i,List<Expression> conds, List<Statement> stmts, Statement elze,List<Integer> lines, List<Integer> poses]
     :   {
             $conds = new ArrayList<>();
@@ -402,7 +403,7 @@ returnFunc returns[Statement value] locals[ Expression retVal,int line,int pos]
           $value.line = $line; $value.col = $pos;
         }
     ;
-//check
+
 block returns[Statement value] locals[ List<Statement> body,int line,int pos ]
     :
         bb = BEGIN {$line = $bb.line; $pos = $bb.pos;}
@@ -445,7 +446,7 @@ halt returns[Statement value]
         | b = BREAK { $value = new Break(); $value.line = $b.line; $value.col = $b.pos;})
         SEMICOLON
     ;
-//check
+
 singleStatement returns[ Statement value]
     :
         (
@@ -567,7 +568,7 @@ unaryExp returns[Expression value] locals[String type, Expression expr,int line,
           }
         }
     ;
-//check
+
 callExp returns[Expression value] locals[Expression instance,Expression index,int line,int pos]
     :   ( m = methodCall { $instance = $m.value;}
           r = RBRACKET {$line = $r.line; $pos = $r.pos;}
@@ -580,13 +581,13 @@ callExp returns[Expression value] locals[Expression instance,Expression index,in
     ;
 
 
-newExp returns[Expression value] locals[Identifier iD]
-    :   NEW
+newExp returns[Expression value] locals[Identifier iD,int line , int pos]
+    :   n = NEW {$line = $n.line; $pos = $n.pos;}
         (( i = ID
         { $iD = new Identifier($i.getText());
           $iD.line = $i.line; $iD.col = $i.pos;
           $value = new NewClassInstance($iD);
-          $value.line = $iD.line; $value.col = $iD.col;
+          $value.line = $line; $value.col = $pos;
         }
         RPARAN
         LPARAN )
@@ -654,7 +655,7 @@ singleCall returns[Expression value] locals[Identifier iD]
       | f = funcCall { $value = $f.value;}
       | i = ID { $iD = new Identifier($i.text);$iD.line = $i.line; $iD.col = $i.pos; $value = $iD;}
     ;
-//check
+
 funcCall returns[MethodCall value] locals[Identifier name,Expression instance]
     :   i = ID { $name = new Identifier($i.getText());$name.line = $i.line; $name.col = $i.pos;}
         RPARAN

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f658d4a-2b6f-495c-bf19-1337f5498401" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/toorla/visitor/TreePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/toorla/visitor/TreePrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/Toorla_Actions.interp" beforeDir="false" afterPath="$PROJECT_DIR$/gen/Toorla_Actions.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/Toorla_ActionsParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grammar/Toorla.g4" beforeDir="false" afterPath="$PROJECT_DIR$/grammar/Toorla.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grammar/Toorla_Actions.g4" beforeDir="false" afterPath="$PROJECT_DIR$/grammar/Toorla_Actions.g4" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,35 +20,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grammar/Toorla.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+            <state relative-caret-position="198">
+              <caret line="170" column="66" lean-forward="true" selection-start-line="170" selection-start-column="42" selection-end-line="170" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grammar/Toorla_Actions.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="353" column="5" lean-forward="true" selection-start-line="353" selection-start-column="5" selection-end-line="353" selection-end-column="5" />
+            <state relative-caret-position="-36">
+              <caret line="657" lean-forward="true" selection-start-line="657" selection-end-line="657" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/toorla/ast/statement/localVarStats/LocalVarsDefinitions.java">
+        <entry file="file://$PROJECT_DIR$/src/toorla/ast/declaration/classDecs/classMembersDecs/AccessModifier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/toorla/ast/statement/Statement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            <state relative-caret-position="36">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -52,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/Toorla_ActionsParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="2371" selection-start-line="2371" selection-end-line="2371" />
+            <state relative-caret-position="1899">
+              <caret line="2352" selection-start-line="2352" selection-end-line="2352" />
               <folding>
                 <element signature="e#9592#9593#0" expanded="true" />
                 <element signature="e#9644#9645#0" expanded="true" />
@@ -66,20 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/toorla/visitor/TreePrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4392">
+            <state relative-caret-position="1818">
               <caret line="121" column="32" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/toorla/ast/statement/Break.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -87,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="49" column="3" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
+            <state relative-caret-position="528">
+              <caret line="49" column="3" selection-end-line="49" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -143,7 +129,6 @@
         <option value="$PROJECT_DIR$/src/src/ToorlaCompiler.java" />
         <option value="$PROJECT_DIR$/src/toorla/ast/statement/DecStatement.java" />
         <option value="$PROJECT_DIR$/src/toorla/ast/expression/value/BoolValue.java" />
-        <option value="$PROJECT_DIR$/grammar/Toorla.g4" />
         <option value="$PROJECT_DIR$/src/Toorla.java" />
         <option value="$PROJECT_DIR$/gen/Toorla_ActionsParser.java" />
         <option value="$PROJECT_DIR$/grammar/AS_EXPR_EVAL.g4" />
@@ -151,8 +136,9 @@
         <option value="$PROJECT_DIR$/src/toorla/ast/declaration/classDecs/ClassDeclaration.java" />
         <option value="$PROJECT_DIR$/src/toorla/ast/expression/Identifier.java" />
         <option value="$PROJECT_DIR$/sample.in" />
-        <option value="$PROJECT_DIR$/grammar/Toorla_Actions.g4" />
         <option value="$PROJECT_DIR$/src/toorla/visitor/TreePrinter.java" />
+        <option value="$PROJECT_DIR$/grammar/Toorla.g4" />
+        <option value="$PROJECT_DIR$/grammar/Toorla_Actions.g4" />
       </list>
     </option>
   </component>
@@ -203,6 +189,33 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="toorla" type="462c0819:PsiDirectoryNode" />
               <item name="ast" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ph1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="toorla" type="462c0819:PsiDirectoryNode" />
+              <item name="ast" type="462c0819:PsiDirectoryNode" />
+              <item name="declaration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ph1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="toorla" type="462c0819:PsiDirectoryNode" />
+              <item name="ast" type="462c0819:PsiDirectoryNode" />
+              <item name="declaration" type="462c0819:PsiDirectoryNode" />
+              <item name="classDecs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ph1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="toorla" type="462c0819:PsiDirectoryNode" />
+              <item name="ast" type="462c0819:PsiDirectoryNode" />
+              <item name="declaration" type="462c0819:PsiDirectoryNode" />
+              <item name="classDecs" type="462c0819:PsiDirectoryNode" />
+              <item name="classMembersDecs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
@@ -305,13 +318,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32890365" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3673696" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3673696" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32890365" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.2608213" />
+      <window_info anchor="bottom" id="Tool Output" order="8" visible="true" weight="0.2608213" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32890365" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.337763" />
@@ -327,13 +340,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/toorla/ast/expression/binaryExpression/Modulo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/toorla/ast/expression/unaryExpression/Not.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -642,20 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grammar/Toorla.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="49" column="3" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/toorla/ast/statement/localVarStats/LocalVarsDefinitions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -665,8 +657,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gen/Toorla_ActionsParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="2371" selection-start-line="2371" selection-end-line="2371" />
+        <state relative-caret-position="1899">
+          <caret line="2352" selection-start-line="2352" selection-end-line="2352" />
           <folding>
             <element signature="e#9592#9593#0" expanded="true" />
             <element signature="e#9644#9645#0" expanded="true" />
@@ -675,13 +667,6 @@
             <element signature="e#9899#9900#0" expanded="true" />
             <element signature="e#9936#9937#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grammar/Toorla_Actions.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="353" column="5" lean-forward="true" selection-start-line="353" selection-start-column="5" selection-end-line="353" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -694,8 +679,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/toorla/visitor/TreePrinter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4392">
+        <state relative-caret-position="1818">
           <caret line="121" column="32" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/toorla/ast/declaration/classDecs/classMembersDecs/AccessModifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="49" column="3" selection-end-line="49" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grammar/Toorla.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="170" column="66" lean-forward="true" selection-start-line="170" selection-start-column="42" selection-end-line="170" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grammar/Toorla_Actions.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="657" lean-forward="true" selection-start-line="657" selection-end-line="657" />
         </state>
       </provider>
     </entry>

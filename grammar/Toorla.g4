@@ -75,7 +75,7 @@ varDef
     ;
 
 assignment
-    :   (ID | arrayElement | callExp)  ASSIGN expression SEMICOLON
+    :   (callExp)  ASSIGN expression SEMICOLON
     ;
 
 instantiation
