@@ -63,7 +63,7 @@ type
     ;
 
 array
-    :   type RBRACKET NUMBER LBRACKET
+    :   type RBRACKET expression LBRACKET
     ;
 
 funcArray

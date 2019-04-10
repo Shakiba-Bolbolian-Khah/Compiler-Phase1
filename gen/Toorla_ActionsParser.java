@@ -1146,7 +1146,6 @@ public class Toorla_ActionsParser extends Parser {
 				break;
 			case END:
 				{
-				_localctx.value.add(new Skip());
 				}
 				break;
 			default:
@@ -2091,8 +2090,8 @@ public class Toorla_ActionsParser extends Parser {
 				{
 				setState(410);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,26,_ctx) ) {
-				case 1:
+				switch (_input.LA(1)) {
+				case IF:
 					{
 					setState(393);
 					((IfExpContext)_localctx).cf = completeIf();
@@ -2135,13 +2134,15 @@ public class Toorla_ActionsParser extends Parser {
 					}
 					}
 					break;
-				case 2:
+				case ELSE:
 					{
 					setState(407);
 					((IfExpContext)_localctx).els3 = elseStmt();
 					 _localctx.stmts.add(((IfExpContext)_localctx).els3.value);
 					}
 					break;
+				default:
+					throw new NoViableAltException(this);
 				}
 				}
 				break;
@@ -2405,21 +2406,38 @@ public class Toorla_ActionsParser extends Parser {
 		ElseStmtContext _localctx = new ElseStmtContext(_ctx, getState());
 		enterRule(_localctx, 46, RULE_elseStmt);
 		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(440);
+			match(ELSE);
 			setState(447);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case ELSE:
-				enterOuterAlt(_localctx, 1);
+			case BEGIN:
+			case SELF:
+			case TRUE:
+			case FALSE:
+			case NEW:
+			case RETURN:
+			case VAR:
+			case WHILE:
+			case BREAK:
+			case CONTINUE:
+			case PRINT:
+			case MINUSNEG:
+			case NOT:
+			case SEMICOLON:
+			case STRTOKEN:
+			case RPARAN:
+			case NUMBER:
+			case ID:
 				{
-				setState(440);
-				match(ELSE);
 				setState(441);
 				((ElseStmtContext)_localctx).b = ifBody();
 				 ((ElseStmtContext)_localctx).value =  ((ElseStmtContext)_localctx).b.value;
 				}
 				break;
 			case IF:
-				enterOuterAlt(_localctx, 2);
 				{
 				setState(444);
 				((ElseStmtContext)_localctx).ie = ifExp();
@@ -2428,6 +2446,7 @@ public class Toorla_ActionsParser extends Parser {
 				break;
 			default:
 				throw new NoViableAltException(this);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -2599,7 +2618,6 @@ public class Toorla_ActionsParser extends Parser {
 				}
 				break;
 			case ELSE:
-			case IF:
 				{
 				setState(476);
 				((CompleteIfContext)_localctx).els3 = elseStmt();
@@ -4040,18 +4058,20 @@ public class Toorla_ActionsParser extends Parser {
 	public static class ArrayContext extends ParserRuleContext {
 		public NewArray value;
 		public SingleType type;
-		public IntValue length;
+		public Expression length;
 		public int line;
 		public int pos;
 		public TyppeContext t;
 		public Token r;
-		public Token n;
+		public ExpressionContext n;
 		public TerminalNode LBRACKET() { return getToken(Toorla_ActionsParser.LBRACKET, 0); }
 		public TyppeContext typpe() {
 			return getRuleContext(TyppeContext.class,0);
 		}
 		public TerminalNode RBRACKET() { return getToken(Toorla_ActionsParser.RBRACKET, 0); }
-		public TerminalNode NUMBER() { return getToken(Toorla_ActionsParser.NUMBER, 0); }
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
+		}
 		public ArrayContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -4084,8 +4104,8 @@ public class Toorla_ActionsParser extends Parser {
 			((ArrayContext)_localctx).r = match(RBRACKET);
 			((ArrayContext)_localctx).line =  (((ArrayContext)_localctx).r!=null?((ArrayContext)_localctx).r.getLine():0); ((ArrayContext)_localctx).pos =  (((ArrayContext)_localctx).r!=null?((ArrayContext)_localctx).r.getCharPositionInLine():0);
 			setState(715);
-			((ArrayContext)_localctx).n = match(NUMBER);
-			 ((ArrayContext)_localctx).length =  new IntValue((((ArrayContext)_localctx).n!=null?Integer.valueOf(((ArrayContext)_localctx).n.getText()):0)); _localctx.length.line = (((ArrayContext)_localctx).n!=null?((ArrayContext)_localctx).n.getLine():0); _localctx.length.col = (((ArrayContext)_localctx).n!=null?((ArrayContext)_localctx).n.getCharPositionInLine():0);
+			((ArrayContext)_localctx).n = expression();
+			 ((ArrayContext)_localctx).length =  ((ArrayContext)_localctx).n.value;
 			setState(717);
 			match(LBRACKET);
 			 ((ArrayContext)_localctx).value =  new NewArray( _localctx.type, _localctx.length); _localctx.value.line = _localctx.line; _localctx.value.col = _localctx.pos;
@@ -4899,7 +4919,7 @@ public class Toorla_ActionsParser extends Parser {
 		"\2\26\u00f5\3\2\2\2\30\u0100\3\2\2\2\32\u0115\3\2\2\2\34\u012b\3\2\2\2"+
 		"\36\u0133\3\2\2\2 \u0135\3\2\2\2\"\u013f\3\2\2\2$\u0159\3\2\2\2&\u015d"+
 		"\3\2\2\2(\u0170\3\2\2\2*\u0172\3\2\2\2,\u01a8\3\2\2\2.\u01aa\3\2\2\2\60"+
-		"\u01c1\3\2\2\2\62\u01c3\3\2\2\2\64\u01e5\3\2\2\2\66\u01ec\3\2\2\28\u01f3"+
+		"\u01ba\3\2\2\2\62\u01c3\3\2\2\2\64\u01e5\3\2\2\2\66\u01ec\3\2\2\28\u01f3"+
 		"\3\2\2\2:\u01fc\3\2\2\2<\u020b\3\2\2\2>\u0223\3\2\2\2@\u0225\3\2\2\2B"+
 		"\u0234\3\2\2\2D\u0243\3\2\2\2F\u0258\3\2\2\2H\u026d\3\2\2\2J\u0282\3\2"+
 		"\2\2L\u02a9\3\2\2\2N\u02bc\3\2\2\2P\u02be\3\2\2\2R\u02c9\3\2\2\2T\u02d2"+
@@ -4948,7 +4968,7 @@ public class Toorla_ActionsParser extends Parser {
 		"\2\u00f3\u00f4\7\67\2\2\u00f4\25\3\2\2\2\u00f5\u00fe\b\f\1\2\u00f6\u00f7"+
 		"\5\34\17\2\u00f7\u00f8\b\f\1\2\u00f8\u00fa\3\2\2\2\u00f9\u00f6\3\2\2\2"+
 		"\u00fa\u00fb\3\2\2\2\u00fb\u00f9\3\2\2\2\u00fb\u00fc\3\2\2\2\u00fc\u00ff"+
-		"\3\2\2\2\u00fd\u00ff\b\f\1\2\u00fe\u00f9\3\2\2\2\u00fe\u00fd\3\2\2\2\u00ff"+
+		"\3\2\2\2\u00fd\u00ff\3\2\2\2\u00fe\u00f9\3\2\2\2\u00fe\u00fd\3\2\2\2\u00ff"+
 		"\27\3\2\2\2\u0100\u0104\b\r\1\2\u0101\u0102\5\f\7\2\u0102\u0103\b\r\1"+
 		"\2\u0103\u0105\3\2\2\2\u0104\u0101\3\2\2\2\u0104\u0105\3\2\2\2\u0105\u0106"+
 		"\3\2\2\2\u0106\u0107\7\7\2\2\u0107\u0108\b\r\1\2\u0108\u0109\5\32\16\2"+
@@ -5006,9 +5026,9 @@ public class Toorla_ActionsParser extends Parser {
 		"\5@!\2\u01ae\u01af\b\30\1\2\u01af\u01b6\7\65\2\2\u01b0\u01b1\5,\27\2\u01b1"+
 		"\u01b2\b\30\1\2\u01b2\u01b7\3\2\2\2\u01b3\u01b4\5*\26\2\u01b4\u01b5\b"+
 		"\30\1\2\u01b5\u01b7\3\2\2\2\u01b6\u01b0\3\2\2\2\u01b6\u01b3\3\2\2\2\u01b7"+
-		"\u01b8\3\2\2\2\u01b8\u01b9\b\30\1\2\u01b9/\3\2\2\2\u01ba\u01bb\7\13\2"+
+		"\u01b8\3\2\2\2\u01b8\u01b9\b\30\1\2\u01b9/\3\2\2\2\u01ba\u01c1\7\13\2"+
 		"\2\u01bb\u01bc\5,\27\2\u01bc\u01bd\b\31\1\2\u01bd\u01c2\3\2\2\2\u01be"+
-		"\u01bf\5*\26\2\u01bf\u01c0\b\31\1\2\u01c0\u01c2\3\2\2\2\u01c1\u01ba\3"+
+		"\u01bf\5*\26\2\u01bf\u01c0\b\31\1\2\u01c0\u01c2\3\2\2\2\u01c1\u01bb\3"+
 		"\2\2\2\u01c1\u01be\3\2\2\2\u01c2\61\3\2\2\2\u01c3\u01c4\b\32\1\2\u01c4"+
 		"\u01c5\7\26\2\2\u01c5\u01c6\b\32\1\2\u01c6\u01c7\7\64\2\2\u01c7\u01c8"+
 		"\5@!\2\u01c8\u01c9\b\32\1\2\u01c9\u01d0\7\65\2\2\u01ca\u01cb\5,\27\2\u01cb"+
@@ -5090,8 +5110,8 @@ public class Toorla_ActionsParser extends Parser {
 		"\u02c3\7\64\2\2\u02c3\u02c8\7\65\2\2\u02c4\u02c5\5R*\2\u02c5\u02c6\b)"+
 		"\1\2\u02c6\u02c8\3\2\2\2\u02c7\u02c0\3\2\2\2\u02c7\u02c4\3\2\2\2\u02c8"+
 		"Q\3\2\2\2\u02c9\u02ca\5\16\b\2\u02ca\u02cb\b*\1\2\u02cb\u02cc\7\66\2\2"+
-		"\u02cc\u02cd\b*\1\2\u02cd\u02ce\78\2\2\u02ce\u02cf\b*\1\2\u02cf\u02d0"+
-		"\7\67\2\2\u02d0\u02d1\b*\1\2\u02d1S\3\2\2\2\u02d2\u02d3\5V,\2\u02d3\u02d4"+
+		"\u02cc\u02cd\b*\1\2\u02cd\u02ce\5@!\2\u02ce\u02cf\b*\1\2\u02cf\u02d0\7"+
+		"\67\2\2\u02d0\u02d1\b*\1\2\u02d1S\3\2\2\2\u02d2\u02d3\5V,\2\u02d3\u02d4"+
 		"\b+\1\2\u02d4\u02d5\5X-\2\u02d5\u02d6\b+\1\2\u02d6U\3\2\2\2\u02d7\u02d8"+
 		"\5P)\2\u02d8\u02d9\b,\1\2\u02d9\u02e5\3\2\2\2\u02da\u02db\7\b\2\2\u02db"+
 		"\u02e5\b,\1\2\u02dc\u02dd\79\2\2\u02dd\u02e5\b,\1\2\u02de\u02df\5b\62"+

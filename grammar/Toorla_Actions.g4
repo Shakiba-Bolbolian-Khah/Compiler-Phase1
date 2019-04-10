@@ -176,7 +176,7 @@ blockBody returns[List<Statement> value]
     :
         { $value = new ArrayList<>(); }
         (( stmt = statement { $value.add($stmt.value);})+
-        | {$value.add(new Skip());})
+        | )
     ;
 
 fieldStmt returns[ List<FieldDeclaration> value] locals [int i,String accessmodifier="private",List<Identifier> names,Type fieldType, FieldDeclaration fd,int line,int pos]
@@ -350,8 +350,8 @@ elifStmt[List<Expression> condVal, List<Statement> stmtVal] returns[List<Express
 
 elseStmt returns[Statement value]
     :   ELSE
-        b = ifBody { $value = $b.value;}
-        | ie = ifExp { $value = $ie.value;}
+        (b = ifBody { $value = $b.value;}
+        | ie = ifExp { $value = $ie.value;})
     ;
 
 completeIf returns[Statement value] locals[int i,List<Expression> conds, List<Statement> stmts, Statement elze,List<Integer> lines, List<Integer> poses]
@@ -594,10 +594,10 @@ newExp returns[Expression value] locals[Identifier iD,int line , int pos]
         | a = array { $value = $array.value;})
     ;
 
-array returns[NewArray value] locals[ SingleType type, IntValue length,int line , int pos]
+array returns[NewArray value] locals[ SingleType type, Expression length,int line , int pos]
     :   t = typpe { $type = $t.type; }
         r = RBRACKET {$line = $r.line; $pos = $r.pos;}
-        n = NUMBER { $length = new IntValue($n.int); $length.line = $n.line; $length.col = $n.pos;}
+        n = expression { $length = $n.value;}
         LBRACKET
         { $value = new NewArray( $type, $length); $value.line = $line; $value.col = $pos;}
     ;
@@ -852,7 +852,7 @@ LINECOMMENT
     ;
 
 WS
-	: [ \t\n] -> skip
+	: [ \t\n \r\n] -> skip
 	;
 SEMICOLON
 	: ';'
@@ -878,9 +878,13 @@ DOT
     : '.'
     ;
 
+//STRTOKEN
+//    : '"' ('\\' ["\\] | ~["\\\r\n])* '"'
+//    ;
 STRTOKEN
-    : '"' ('\\' ["\\] | ~["\\\r\n])* '"'
+    : '"' ~('\r' | '\n' | '"')* '"'
     ;
+
 
 RPARAN
     : '('
@@ -904,6 +908,6 @@ NUMBER
     ;
 
 ID
-	:	[a-zA-Z] [a-zA-Z0-9_]*
+	:	[a-zA-Z_] [a-zA-Z0-9_]*
     ;
 
