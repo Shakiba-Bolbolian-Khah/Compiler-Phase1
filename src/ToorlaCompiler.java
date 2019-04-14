@@ -6,17 +6,12 @@ import toorla.visitor.Visitor;
 
 public class ToorlaCompiler {
     public void compile(CharStream textStream) {
-        Toorla_ActionsLexer toorlaLexer = new Toorla_ActionsLexer( textStream );
+        ToorlaLexer toorlaLexer = new ToorlaLexer( textStream );
         CommonTokenStream tokenStream = new CommonTokenStream( toorlaLexer );
-        Toorla_ActionsParser toorlaParser = new Toorla_ActionsParser( tokenStream );
+        ToorlaParser toorlaParser = new ToorlaParser( tokenStream );
         Program toorlaASTCode = toorlaParser.program().mProgram;
         Visitor<Void> treePrinter = new TreePrinter();
         toorlaASTCode.accept( treePrinter );
-//        AS_EXPR_EVALLexer toorlaLexer = new AS_EXPR_EVALLexer( textStream );
-//        CommonTokenStream tokenStream = new CommonTokenStream( toorlaLexer );
-//        AS_EXPR_EVALParser toorlaParser = new AS_EXPR_EVALParser( tokenStream );
-//        toorlaParser.program();
-//        Visitor<Void> treePrinter = new TreePrinter();
-        // toorlaASTCode.accept( treePrinter );
+
     }
 }

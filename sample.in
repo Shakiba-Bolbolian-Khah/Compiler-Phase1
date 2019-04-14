@@ -1,9 +1,42 @@
 entry class object:
 function main() returns int:
-a = new a[3];
-b = new a[2+3];
-c = new d[b*a-7];
-
+if (a)
+    if(b)
+        return c;
+    elif(c)
+        return d;
+    elif(d)
+        return e;
+    else
+        return k;
+elif(k)
+    return 4;
+if(yazdani) return 1;
+else
+    if(yazdani == false)
+        if(tehran == tayar)
+            if( us == tayar)
+                return false;
+            else
+                if(us == tayar)
+                    return object+1;
+                else
+                    if(yawler == ua_)
+                        if(us) begin
+                            while (true) return 1;
+                            if(varName == "hello")
+                                return 12;
+                            else
+                                return 13;
+                            return 1;
+                        end
+                        else
+                            return 2;
+                    else
+                        if(object) begin
+                            print ("hello");
+                            return object;
+                        end
 return 0;
 end
 end
