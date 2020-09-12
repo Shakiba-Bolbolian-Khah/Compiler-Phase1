@@ -3,57 +3,138 @@
   <component name="ChangeListManager">
     <list default="true" id="8f658d4a-2b6f-495c-bf19-1337f5498401" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_Actions.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_Actions.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsBaseListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsBaseVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsLexer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsLexer.tokens" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Toorla_ActionsVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/grammar/Toorla.g4" beforeDir="false" afterPath="$PROJECT_DIR$/grammar/Toorla.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grammar/Toorla_Actions.g4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_Actions.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_Actions.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsBaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsBaseListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsBaseVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsBaseVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsLexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$AddExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$AddExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$AndExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$AndExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ArgCallContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ArgCallContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ArrayContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ArrayContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ArrayElementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ArrayElementContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$BlockContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$BlockContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$CallExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$CallExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$CompareExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$CompareExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$CompleteIfContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$CompleteIfContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ElifStmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ElifStmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ElseStmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ElseStmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$EqualExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$EqualExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ExpressionContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ExpressionContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$FuncCallContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$FuncCallContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$HaltContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$HaltContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$IfBodyContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$IfBodyContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$IfExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$IfExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$IncDecStmtContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$IncDecStmtContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$MethodCallContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$MethodCallContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$MethodTempCallContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$MethodTempCallContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$MultExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$MultExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$NewExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$NewExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$OtherCallContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$OtherCallContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ParanExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ParanExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$PrintFuncContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$PrintFuncContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ReturnFuncContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$ReturnFuncContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$SingleCallContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$SingleCallContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$SingleStatementContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$SingleStatementContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$UnaryExpContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser$UnaryExpContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ph1/Toorla_ActionsVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample.in" beforeDir="false" afterPath="$PROJECT_DIR$/sample.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ToorlaCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToorlaCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/Toorla.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/Toorla.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/ToorlaBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/ToorlaBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/ToorlaLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/ToorlaLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/ToorlaLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/ToorlaListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/ToorlaParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/ToorlaVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/META-INF/ph1.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/Toorla.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaBaseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaBaseVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaCompiler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaLexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$AccessModifierContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$AddExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$AndExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ArgCallContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ArgumentContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ArrayContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ArrayElementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$AssignmentContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$BlockBodyContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$BlockContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$CallExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ClassBodyContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ClassTypeContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$CompareExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$CompleteIfContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ElifStmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ElseStmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$EntryClassContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$EqualExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ExpressionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$FieldStmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$FieldVarsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$FuncArrayContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$FuncCallContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$HaltContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$IfBodyContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$IfExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$IfWithoutElseContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$IncDecStmtContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$InstantiationContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$MethodCallContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$MethodContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$MethodTempCallContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$MultExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$MultiArgsContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$MultiVarContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$NewExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$OtherCallContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ParanExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$PrintFuncContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ProgramContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$ReturnFuncContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$SingleCallContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$SingleStatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$StatementContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$TyppeContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$UnaryExpContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$VarDefContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$WhileBodyContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser$WhileLoopContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/ToorlaVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/Program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/Declaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/TypedVariableDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/VariableDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/classDecs/ClassDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/classDecs/EntryClassDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/classDecs/classMembersDecs/AccessModifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/classDecs/classMembersDecs/ClassMemberDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/classDecs/classMembersDecs/FieldDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/classDecs/classMembersDecs/MethodDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/declaration/localVarDecs/ParameterDeclaration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/ArrayCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/Expression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/FieldCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/Identifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/MethodCall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/NewArray.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/NewClassInstance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/Self.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/And.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/BinaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/Division.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/Equals.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/GreaterThan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/LessThan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/Minus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/Modulo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/NotEquals.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/Or.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/Plus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/binaryExpression/Times.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/unaryExpression/Neg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/unaryExpression/Not.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/unaryExpression/UnaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/value/BoolValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/value/IntValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/value/StringValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/expression/value/Value.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/Assign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/Block.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/Break.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/Conditional.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/Continue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/DecStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/IncStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/PrintLine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/Skip.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/Statement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/While.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/localVarStats/LocalVarDef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/localVarStats/LocalVarsDefinitions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/ast/statement/returnStatement/Return.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/types/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/types/arrayType/ArrayType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/types/singleType/BoolType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/types/singleType/IntType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/types/singleType/SingleType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/types/singleType/StringType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/types/singleType/UserDefinedType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/visitor/TreePrinter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ph1/toorla/visitor/Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ph1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ph1.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,18 +150,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="14" selection-start-column="14" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ToorlaCompiler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
-                <element signature="e#25#681#1" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ToorlaCompiler.java">
+        <entry file="file://$PROJECT_DIR$/src/Toorla.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+            <state relative-caret-position="144">
+              <caret line="8" selection-start-line="8" selection-end-line="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,7 +186,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
+            <state relative-caret-position="702">
               <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
             </state>
           </provider>
@@ -105,7 +195,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/toorla/ast/expression/Identifier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="144">
               <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
               <folding>
                 <element signature="e#170#171#0" expanded="true" />
@@ -155,7 +245,6 @@
         <option value="$PROJECT_DIR$/src/src/ToorlaCompiler.java" />
         <option value="$PROJECT_DIR$/src/toorla/ast/statement/DecStatement.java" />
         <option value="$PROJECT_DIR$/src/toorla/ast/expression/value/BoolValue.java" />
-        <option value="$PROJECT_DIR$/src/Toorla.java" />
         <option value="$PROJECT_DIR$/gen/Toorla_ActionsParser.java" />
         <option value="$PROJECT_DIR$/grammar/AS_EXPR_EVAL.g4" />
         <option value="$PROJECT_DIR$/src/toorla/ast/declaration/classDecs/ClassDeclaration.java" />
@@ -165,6 +254,7 @@
         <option value="$PROJECT_DIR$/sample.in" />
         <option value="$PROJECT_DIR$/grammar/Toorla.g4" />
         <option value="$PROJECT_DIR$/src/ToorlaCompiler.java" />
+        <option value="$PROJECT_DIR$/src/Toorla.java" />
       </list>
     </option>
   </component>
@@ -191,11 +281,6 @@
             <path>
               <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
               <item name="ph1" type="462c0819:PsiDirectoryNode" />
-              <item name="gen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ph1" type="462c0819:PsiDirectoryNode" />
               <item name="grammar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -209,60 +294,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="toorla" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ph1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="toorla" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ph1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="toorla" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-              <item name="declaration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ph1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="toorla" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-              <item name="declaration" type="462c0819:PsiDirectoryNode" />
-              <item name="classDecs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ph1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="toorla" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-              <item name="declaration" type="462c0819:PsiDirectoryNode" />
-              <item name="classDecs" type="462c0819:PsiDirectoryNode" />
-              <item name="classMembersDecs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ph1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="toorla" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-              <item name="expression" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ph1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="toorla" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-              <item name="statement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ph1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -271,9 +302,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555068325096" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sample.in" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573807799507" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -290,7 +321,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestRig">
+  <component name="RunManager" selected="Application.Toorla">
     <configuration name="TestRig" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.antlr.v4.gui.TestRig" />
       <module name="ph1" />
@@ -343,7 +374,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26120642" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27780852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -352,16 +383,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32890365" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3673696" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3673696" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32890365" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.2608213" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32890365" />
+      <window_info anchor="bottom" x="85" y="440" width="1817" height="235" id="Tool Output" order="8" type="WINDOWED" weight="0.2608213" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32852387" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.337763" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.33740288" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32852387" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -374,13 +405,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/toorla/types/singleType/UserDefinedType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/toorla/ast/expression/NewClassInstance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -399,23 +423,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gen/AS_EXPR_EVALVisitor.java" />
-    <entry file="file://$PROJECT_DIR$/src/Toorla.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gen/Toorla_ActionsBaseVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/Toorla_ActionsBaseVisitor.java" />
     <entry file="file://$PROJECT_DIR$/gen/AS_EXPR_EVALParser.java" />
     <entry file="file://$PROJECT_DIR$/src/toorla/types/arrayType/ArrayType.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -675,13 +683,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen/Toorla_ActionsParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42048">
-          <caret line="2493" selection-start-line="2493" selection-end-line="2493" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/Toorla_ActionsParser.java" />
     <entry file="file://$PROJECT_DIR$/src/toorla/visitor/TreePrinter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3780">
@@ -689,9 +691,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grammar/Toorla_Actions.g4" />
+    <entry file="file://$PROJECT_DIR$/gen/ToorlaVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grammar/Toorla.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ToorlaCompiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grammar/Toorla_grammar.g4">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/toorla/ast/expression/Identifier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
+        <state relative-caret-position="144">
           <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
           <folding>
             <element signature="e#170#171#0" expanded="true" />
@@ -700,37 +737,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample.in">
+    <entry file="file://$PROJECT_DIR$/src/Toorla.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grammar/Toorla_Actions.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15768">
-          <caret line="894" column="7" selection-start-line="894" selection-start-column="7" selection-end-line="894" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grammar/Toorla_grammar.g4">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grammar/Toorla.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-          <folding>
-            <element signature="e#25#681#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ToorlaCompiler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
